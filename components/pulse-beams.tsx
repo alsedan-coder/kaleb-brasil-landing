@@ -146,18 +146,6 @@ export const PulseBeams: React.FC<PulseBeamsProps> = ({
     </div>
   );
 };
-            strokeWidth="1"
-            variants={dotVariants}
-          />
-          <motion.circle
-            cx="150"
-            cy="50"
-            r="3"
-            fill="rgba(230,126,34,0.5)"
-            stroke="rgba(230,126,34,0.7)"
-            strokeWidth="1"
-            variants={dotVariants}
-          />
           <motion.circle
             cx="100"
             cy="250"
