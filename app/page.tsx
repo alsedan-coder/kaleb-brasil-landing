@@ -315,56 +315,358 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sobre - Filosofia */}
-      <section id="sobre" className="py-20 bg-gradient-to-b from-slate-50 to-white text-navy">
+      {/* Depoimentos */}
+      <section id="depoimentos" className="py-20 bg-white text-navy">
         <div className="container-custom">
-          <h2 className="section-h2">Nossa Filosofia</h2>
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-light/10 via-accent/5 to-blue-light/5 border border-blue-light/30 p-8 md:p-12"
-            >
-              {/* Decorative gradient accent */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-light/20 rounded-full blur-3xl" />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-12 text-center">
+            <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Prova social</p>
+            <h2 className="section-h2 mb-4">O que nossos clientes dizem</h2>
+            <p className="section-sub max-w-2xl mx-auto">
+              Empresários reais do interior paulista que confiam na Kaleb Brasil para gerir seus negócios.
+            </p>
+          </motion.div>
 
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-navy to-blue-light">
-                  Transformamos Negócios
-                </h3>
-                <p className="text-lg leading-relaxed text-text-soft mb-6">
-                  Com décadas de experiência em automação comercial, ajudamos empresas do interior de SP a melhorar processos, aumentar vendas e operar com eficiência. Cada solução é customizada para suas necessidades reais.
-                </p>
-
-                {/* Pillars */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                  {[
-                    { icon: "⚡", text: "Rápido" },
-                    { icon: "🤝", text: "Próximo" },
-                    { icon: "✓", text: "Confiável" }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex flex-col items-center p-4 bg-white/40 rounded-xl backdrop-blur-sm border border-white/60">
-                      <span className="text-3xl mb-2">{item.icon}</span>
-                      <span className="font-semibold text-sm">{item.text}</span>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                text: "Ótima empresa, ótimo sistema, prático e fácil de utilizar. Suporte ao cliente sempre rápido e eficiente. Recomendo!",
+                name: "Julia Almeida",
+                role: "Açougue"
+              },
+              {
+                text: "Atendimento rápido de um produto fácil de aprender e usar. Recomendo.",
+                name: "Amanda Correa",
+                role: "Hortifruti"
+              },
+              {
+                text: "São muito atenciosos e profissionais, sempre prontos a nos atender no suporte. Recomendo!",
+                name: "Roberto Sales",
+                role: "Loja de Roupas"
+              }
+            ].map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="relative p-6 rounded-2xl bg-gradient-to-br from-blue-light/5 to-accent/5 border border-blue-light/20"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-lg">★</span>
                   ))}
+                </div>
+                <p className="text-text-soft mb-6 leading-relaxed">"{testimonial.text}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-light to-accent flex items-center justify-center text-white text-sm font-bold">
+                    {testimonial.name[0]}{testimonial.name.split(' ')[1][0]}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-navy text-sm">{testimonial.name}</div>
+                    <div className="text-text-soft text-xs">{testimonial.role}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre - Filosofia */}
+      <section id="sobre" className="py-24 bg-gradient-to-b from-slate-50 via-white to-navy/5 text-navy">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Citação prominente */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <div>
+                <p className="text-xs font-bold tracking-wider uppercase text-accent mb-4">Nossa Filosofia</p>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight text-navy mb-2">
+                  Entender para{' '}
+                  <span className="text-accent">atender</span>
+                </h2>
+                <p className="text-text-soft text-lg">Nosso negócio é simples: conhecer cada cliente como único.</p>
+              </div>
+
+              {/* Quote Block */}
+              <div className="relative overflow-hidden rounded-2xl bg-white border-2 border-accent/30 p-8 md:p-10 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="absolute -top-12 -left-12 text-9xl text-accent/10 font-bold">"</div>
+                <p className="relative z-10 text-xl md:text-2xl font-bold text-navy leading-relaxed mb-4">
+                  Nosso negócio é <em className="text-accent not-italic">entender para atender</em> — sendo a solução que a sua empresa merece.
+                </p>
+                <p className="text-sm text-text-soft font-semibold">— Kaleb Brasil, desde Vinhedo/SP</p>
+              </div>
+
+              {/* Checklist */}
+              <div className="space-y-3 pt-4">
+                {[
+                  "Homologado para NFC-e 2026",
+                  "Certificados digitais A1 online",
+                  "Suporte remoto e presencial",
+                  "Pronto para a reforma tributária"
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/20 border border-accent flex items-center justify-center">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" className="text-accent">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                    <span className="text-navy font-medium">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right - Visual Element */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-light via-accent/20 to-navy/10 p-12 border border-white/40">
+                {/* Decorative blobs */}
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-accent/30 rounded-full blur-3xl" />
+                <div className="absolute -bottom-32 -left-20 w-80 h-80 bg-blue-light/20 rounded-full blur-3xl" />
+
+                <div className="relative z-10 space-y-8">
+                  {/* Card 1 */}
+                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
+                    <div className="text-3xl mb-3">⚡</div>
+                    <h4 className="font-bold text-navy mb-2">Rápido</h4>
+                    <p className="text-sm text-text-soft">Implementação e suporte ágil, sem demora.</p>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
+                    <div className="text-3xl mb-3">🤝</div>
+                    <h4 className="font-bold text-navy mb-2">Próximo</h4>
+                    <p className="text-sm text-text-soft">Atendimento humanizado, com pessoas reais.</p>
+                  </div>
+
+                  {/* Card 3 */}
+                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
+                    <div className="text-3xl mb-3">✓</div>
+                    <h4 className="font-bold text-navy mb-2">Confiável</h4>
+                    <p className="text-sm text-text-soft">Parceiro comprometido com seus resultados.</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-      <section id="contato" className="py-20 bg-white text-center">
-        <h2 className="text-3xl font-bold text-navy mb-4">Pronto para começar?</h2>
-        <p className="text-text-soft mb-8 max-w-2xl mx-auto">
-          Entre em contato conosco e descubra como a Kaleb Brasil pode transformar a gestão do seu negócio.
-        </p>
-        <a href="#contato" className="btn-primary btn-lg inline-block">
-          Agendar uma Conversa Gratuita
-        </a>
+      {/* Formulário de Contato */}
+      <section id="contato" className="py-24 bg-white text-navy">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left - Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <div>
+                <p className="text-xs font-bold tracking-wider uppercase text-accent mb-3">Vamos conversar</p>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                  Pronto para organizar<br />a gestão do seu negócio?
+                </h2>
+                <p className="text-text-soft text-lg">
+                  Preencha o formulário e um consultor entrará em contato em até 1 dia útil.
+                  A conversa inicial é gratuita e sem compromisso.
+                </p>
+              </div>
+
+              {/* Contact Details */}
+              <div className="space-y-4 pt-6">
+                {[
+                  { icon: "📱", label: "WhatsApp", value: "(19) 9 9836-2868" },
+                  { icon: "🌐", label: "Site", value: "kalebbrasil.com.br" },
+                  { icon: "📍", label: "Região", value: "Interior de São Paulo" }
+                ].map((contact, idx) => (
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className="text-2xl flex-shrink-0">{contact.icon}</div>
+                    <div>
+                      <div className="font-bold text-navy">{contact.label}</div>
+                      <div className="text-text-soft text-sm">{contact.value}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* WhatsApp Button */}
+              <div className="pt-4">
+                <a
+                  href="https://api.whatsapp.com/send?phone=5519998362868&text=Ol%C3%A1%2C+vim+pela+landpage+e+gostaria+de+conversar+sobre+as+solu%C3%A7%C3%B5es+da+Kaleb+Brasil!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold px-6 py-3 rounded-lg transition-all"
+                >
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  Chamar no WhatsApp agora
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right - Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl bg-gradient-to-br from-blue-light/5 via-accent/5 to-white border border-blue-light/20 p-8 md:p-10 shadow-lg">
+                <h3 className="text-2xl font-bold text-navy mb-2">Agendar conversa gratuita</h3>
+                <p className="text-text-soft text-sm mb-6">Sem compromisso — um consultor entrará em contato em breve.</p>
+
+                <form id="leadForm" className="space-y-4">
+                  {/* Nome e Empresa */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-navy mb-2">
+                        Nome <span className="text-accent">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="nome"
+                        placeholder="Seu nome completo"
+                        required
+                        className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-navy mb-2">
+                        Empresa <span className="text-accent">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="empresa"
+                        placeholder="Nome da empresa"
+                        required
+                        className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy mb-2">
+                      E-mail <span className="text-accent">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="seu@email.com.br"
+                      required
+                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                    />
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy mb-2">
+                      WhatsApp <span className="text-accent">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      name="whatsapp"
+                      placeholder="(19) 9 0000-0000"
+                      required
+                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                    />
+                  </div>
+
+                  {/* Mensagem */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy mb-2">
+                      Mensagem <span className="text-text-soft text-xs">(opcional)</span>
+                    </label>
+                    <textarea
+                      name="mensagem"
+                      placeholder="Conte brevemente sobre seu negócio ou dúvida principal..."
+                      rows={3}
+                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50 resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
+                  >
+                    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/>
+                    </svg>
+                    Enviar e agendar conversa
+                  </button>
+
+                  {/* Privacy note */}
+                  <p className="text-xs text-text-soft flex items-center gap-2">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <rect x="3" y="11" width="18" height="11" rx="2"/>
+                      <path d="M7 11V7a5 5 0 0110 0v4"/>
+                    </svg>
+                    Seus dados estão seguros. Sem spam.
+                  </p>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-navy/95 text-white py-12 border-t border-white/10">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Brand */}
+            <div>
+              <h4 className="text-lg font-bold mb-2">Kaleb Brasil</h4>
+              <p className="text-white/75 text-sm">Automação comercial especializada para PMEs do interior de São Paulo.</p>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h5 className="font-semibold mb-3 text-sm">Links Rápidos</h5>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#servicos" className="text-white/75 hover:text-accent transition">Serviços</a></li>
+                <li><a href="#sobre" className="text-white/75 hover:text-accent transition">Sobre</a></li>
+                <li><a href="#contato" className="text-white/75 hover:text-accent transition">Contato</a></li>
+                <li><a href="https://kalebbrasil.com.br" target="_blank" rel="noopener noreferrer" className="text-white/75 hover:text-accent transition">Site Principal</a></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h5 className="font-semibold mb-3 text-sm">Contato</h5>
+              <ul className="space-y-2 text-sm text-white/75">
+                <li>WhatsApp: (19) 9 9836-2868</li>
+                <li>Email: contato@kalebbrasil.com.br</li>
+                <li>Vinhedo/SP - Interior Paulista</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-8">
+            <p className="text-center text-white/50 text-sm">
+              © 2026 Kaleb Brasil. Todos os direitos reservados. | Landing Page criada com Next.js
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
