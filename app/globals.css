@@ -90,3 +90,8 @@ html {
 .section-sub {
   @apply text-base md:text-lg leading-relaxed text-text-soft max-w-2xl;
 }
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300;
+}
