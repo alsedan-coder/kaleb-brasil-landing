@@ -7,20 +7,23 @@ const gitPath = 'C:\\Program Files\\Git\\cmd\\git.exe';
 process.chdir(workDir);
 
 try {
-  console.log('Removing temporary files...');
-  fs.unlinkSync('git_commit.js');
-  fs.unlinkSync('git_commit.py');
+  console.log('Removing cleanup script...');
+  fs.unlinkSync('cleanup.js');
   
   console.log('Adding changes...');
   execSync(`"${gitPath}" add .`, { stdio: 'inherit', shell: true });
   
-  console.log('Committing cleanup...');
-  execSync(`"${gitPath}" commit -m "Remove temporary git scripts"`, { stdio: 'inherit', shell: true });
+  console.log('Committing final cleanup...');
+  execSync(`"${gitPath}" commit -m "Final cleanup"`, { stdio: 'inherit', shell: true });
   
   console.log('Pushing...');
   execSync(`"${gitPath}" push origin main`, { stdio: 'inherit', shell: true });
   
-  console.log('Cleanup complete!');
+  console.log('All done!');
 } catch (error) {
-  console.error('Error:', error.message);
+  if (error.message.includes('nothing to commit')) {
+    console.log('Nothing to commit - repository is clean!');
+  } else {
+    console.error('Error:', error.message);
+  }
 }
