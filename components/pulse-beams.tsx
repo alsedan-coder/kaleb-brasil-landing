@@ -146,20 +146,3 @@ export const PulseBeams: React.FC<PulseBeamsProps> = ({
     </div>
   );
 };
-          <motion.circle
-            cx="100"
-            cy="250"
-            r="3"
-            fill="rgba(230,126,34,0.5)"
-            stroke="rgba(230,126,34,0.7)"
-            strokeWidth="1"
-            variants={dotVariants}
-          />
-        </motion.g>
-      </svg>
-
-      {/* Content */}
-      <div className="relative z-10">{children}</div>
-    </div>
-  );
-};
