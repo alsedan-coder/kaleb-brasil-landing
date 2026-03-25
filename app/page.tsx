@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PulseBeams } from '@/components/pulse-beams';
+import { ButtonWithBeams } from '@/components/button-with-beams';
 
 export default function Home() {
   const containerVariants = {
@@ -102,12 +103,12 @@ export default function Home() {
                   variants={itemVariants}
                   className="flex flex-col sm:flex-row gap-4 mb-12"
                 >
-                  <a href="#contato" className="btn-primary btn-lg">
-                    Agendar uma conversa gratuita →
-                  </a>
-                  <a href="#servicos" className="btn-outline btn-lg">
+                  <ButtonWithBeams href="#contato" variant="primary" size="lg">
+                    Agendar uma conversa gratuita
+                  </ButtonWithBeams>
+                  <ButtonWithBeams href="#servicos" variant="outline" size="lg">
                     Ver soluções
-                  </a>
+                  </ButtonWithBeams>
                 </motion.div>
 
                 {/* Trust Items */}
@@ -154,9 +155,9 @@ export default function Home() {
         <p className="text-text-soft mb-8 max-w-2xl mx-auto">
           Entre em contato conosco e descubra como a Kaleb Brasil pode transformar a gestão do seu negócio.
         </p>
-        <a href="#contato" className="btn-primary btn-lg inline-block">
+        <ButtonWithBeams href="#contato" variant="primary" size="lg">
           Agendar uma Conversa Gratuita
-        </a>
+        </ButtonWithBeams>
       </section>
     </div>
   );

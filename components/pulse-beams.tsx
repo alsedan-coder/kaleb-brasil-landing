@@ -109,6 +109,54 @@ export const PulseBeams: React.FC<PulseBeamsProps> = ({
           initial="hidden"
           animate="visible"
         >
+          {beams.map((beam, index) => (
+            <motion.path
+              key={index}
+              d={beam.path}
+              stroke={`url(#pulseGradient${(index % 2) + 1})`}
+              strokeWidth="2"
+              fill="none"
+              filter="url(#glow)"
+              variants={beamVariants}
+              style={{
+                animationDelay: `${beam.delay || 0}s`,
+              }}
+            />
+          ))}
+
+          {/* Animated dots */}
+          {beams.map((beam, index) => (
+            <motion.circle
+              key={`dot-${index}`}
+              r="3"
+              fill="#E67E22"
+              filter="url(#glow)"
+              variants={dotVariants}
+              style={{
+                offsetPath: `path('${beam.path}')`,
+                animationDelay: `${beam.delay || 0}s`,
+              }}
+            />
+          ))}
+        </motion.g>
+      </svg>
+
+      {/* Content */}
+      {children}
+    </div>
+  );
+};
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <motion.g
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Beam Paths */}
           {beams.map((beam, idx) => (
             <React.Fragment key={idx}>
