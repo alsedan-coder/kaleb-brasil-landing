@@ -145,21 +145,53 @@ export default function Home() {
       {/* Serviços */}
       <section id="servicos" className="py-20 bg-white text-navy">
         <div className="container-custom">
-          <h2 className="section-h2">Nossos serviços</h2>
-          <p className="section-sub mb-10">Soluções completas para automação comercial, gestão e eficiência operacional.</p>
+          {/* Header */}
+          <div className="mb-14">
+            <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Nossas soluções</p>
+            <h2 className="section-h2">Tudo o que você precisa em um só lugar</h2>
+            <p className="section-sub">
+              Chega de correr de um fornecedor para outro. A Kaleb Brasil reúne software, hardware e serviços de suporte sob um único ponto de contato responsável.
+            </p>
+          </div>
+
+          {/* Cards com hover effect */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "Sistemas de gestão",
-                desc: "Plataformas integradas para controle de estoque, vendas e financeiro."
+                icon: "🖥️",
+                title: "Sistemas e ERP",
+                subtitle: "Gestão completa do seu negócio",
+                items: [
+                  "Gestão de vendas e PDV",
+                  "Controle de estoque em tempo real",
+                  "Emissão de NFC-e, NF-e e NFS-e",
+                  "Preparado para a reforma tributária"
+                ],
+                link: "https://kalebbrasil.com.br/sistemas-e-erp/"
               },
               {
-                title: "Emissão de notas fiscais",
-                desc: "Emissão automática, rápida e sem burocracia para micro e pequenas empresas."
+                icon: "🖨️",
+                title: "Equipamentos e Suprimentos",
+                subtitle: "Hardware de qualidade para seu negócio",
+                items: [
+                  "Impressoras fiscais e de etiquetas",
+                  "Computadores e periféricos",
+                  "Leitores de código de barras",
+                  "Suprimentos e acessórios"
+                ],
+                link: "https://kalebbrasil.com.br/equipamentos-e-suprimentos/"
               },
               {
-                title: "Suporte e treinamento",
-                desc: "Equipe dedicada para implementar e manter tudo funcionando."
+                icon: "🔧",
+                title: "Serviços Técnicos",
+                subtitle: "Suporte e infraestrutura especializada",
+                items: [
+                  "Segurança da informação",
+                  "Emissão de certificados digitais (A1)",
+                  "Manutenção de computadores",
+                  "Acesso remoto e suporte online"
+                ],
+                link: "https://kalebbrasil.com.br/servicos/"
               }
             ].map((service, idx) => (
               <motion.div
@@ -168,15 +200,122 @@ export default function Home() {
                 whileHover={{ y: -12, boxShadow: "0 20px 40px rgba(22,88,184,0.2)" }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-bold mb-2 text-lg">{service.title}</h3>
-                <p className="text-text-soft">{service.desc}</p>
+                <div className="mb-4">
+                  <div className="text-4xl mb-2">{service.icon}</div>
+                  <h3 className="font-bold text-lg mb-1">{service.title}</h3>
+                  <p className="text-sm text-text-soft">{service.subtitle}</p>
+                </div>
+                <ul className="space-y-2 mb-4">
+                  {service.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-text-soft">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" className="flex-shrink-0 mt-1 text-accent">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a href={service.link} target="_blank" rel="noopener noreferrer" className="text-accent font-medium text-sm hover:text-accent/70 transition">
+                  Saiba mais →
+                </a>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sobre - Nova versão com design melhorado */}
+      {/* Quem Somos */}
+      <section id="quem-somos" className="py-20 bg-slate-50 text-navy">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left - Text */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Quem somos</p>
+              <h2 className="section-h2">Nascemos no interior para entender o interior.</h2>
+              <p className="text-text-soft mb-4">
+                Fundada em Vinhedo/SP, a <strong>Kaleb Brasil</strong> nasceu com a garra e coragem
+                de seus idealizadores para oferecer a solução mais completa em automação comercial
+                para empreendedores de pequeno e médio porte da região.
+              </p>
+              <p className="text-text-soft mb-4">
+                Crescemos e estendemos nossa atuação para outras cidades do interior paulista,
+                informatizando estabelecimentos comerciais e industriais com softwares, equipamentos
+                e serviços adequados a cada necessidade.
+              </p>
+              <p className="text-text-soft font-semibold">Nosso negócio é <strong>entender para atender</strong>.</p>
+            </motion.div>
+
+            {/* Right - MVV */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <div className="space-y-4">
+                {[
+                  { label: "Missão", desc: "Entender cada cliente como único e oferecer tecnologias que o ajudem a administrar seus negócios." },
+                  { label: "Visão", desc: "Ser referência em atendimento ao cliente com qualidade de produtos e serviços." },
+                  { label: "Valores", desc: "Deus, família, ética, responsabilidade e respeito." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4 p-4 bg-white rounded-lg border border-blue-light/20">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-light to-accent flex items-center justify-center flex-shrink-0 text-white font-bold">
+                      {item.label[0]}
+                    </div>
+                    <div>
+                      <div className="font-bold text-navy mb-1">{item.label}</div>
+                      <p className="text-sm text-text-soft">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Diferenciais */}
+      <section id="diferenciais" className="py-20 bg-white text-navy">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Left - Text */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Por que a Kaleb Brasil</p>
+              <h2 className="section-h2">Especialistas que entendem o seu negócio.</h2>
+
+              <div className="space-y-6 mt-8">
+                {[
+                  { num: "01", title: "Atendimento humanizado e rápido", desc: "Suporte ágil com pessoas reais — não bots. Nossos clientes confirmam: quando precisam, a equipe está lá." },
+                  { num: "02", title: "Solução completa em um só parceiro", desc: "Software, hardware, certificados, manutenção e treinamento. Uma empresa, um responsável, zero terceirização de culpa." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="text-2xl font-bold text-accent flex-shrink-0">{item.num}</div>
+                    <div>
+                      <h4 className="font-bold text-navy mb-1">{item.title}</h4>
+                      <p className="text-text-soft text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right - Text */}
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <div className="space-y-6 mt-0 md:mt-14">
+                {[
+                  { num: "03", title: "Treinamento personalizado e dinâmico", desc: "Treinamos sua equipe no seu ritmo, mesmo com a loja aberta, focando no que você realmente precisa usar no dia a dia." },
+                  { num: "04", title: "Preparados para as mudanças fiscais", desc: "NFC-e, reforma tributária, NCM ativos — nossa equipe está atualizada e pronta para guiar a sua empresa nessas transições." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <div className="text-2xl font-bold text-accent flex-shrink-0">{item.num}</div>
+                    <div>
+                      <h4 className="font-bold text-navy mb-1">{item.title}</h4>
+                      <p className="text-text-soft text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sobre - Filosofia */}
       <section id="sobre" className="py-20 bg-gradient-to-b from-slate-50 to-white text-navy">
         <div className="container-custom">
           <h2 className="section-h2">Nossa Filosofia</h2>
