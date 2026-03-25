@@ -146,58 +146,6 @@ export const PulseBeams: React.FC<PulseBeamsProps> = ({
     </div>
   );
 };
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <motion.g
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Beam Paths */}
-          {beams.map((beam, idx) => (
-            <React.Fragment key={idx}>
-              <motion.path
-                d={beam.path}
-                stroke="rgba(230,126,34,0.15)"
-                strokeWidth="2"
-                fill="none"
-                variants={beamVariants}
-              />
-              <motion.path
-                d={beam.path}
-                stroke={idx % 2 === 0 ? 'url(#pulseGradient1)' : 'url(#pulseGradient2)'}
-                strokeWidth="2.5"
-                fill="none"
-                filter="url(#glow)"
-                variants={beamVariants}
-                style={{
-                  transitionDelay: `${beam.delay}s`,
-                }}
-              />
-            </React.Fragment>
-          ))}
-
-          {/* Connection Dots */}
-          <motion.circle
-            cx="250"
-            cy="150"
-            r="4"
-            fill="rgba(230,126,34,0.6)"
-            stroke="rgba(230,126,34,0.9)"
-            strokeWidth="1.5"
-            variants={dotVariants}
-            filter="url(#glow)"
-          />
-          <motion.circle
-            cx="100"
-            cy="150"
-            r="3"
-            fill="rgba(230,126,34,0.5)"
-            stroke="rgba(230,126,34,0.7)"
             strokeWidth="1"
             variants={dotVariants}
           />
