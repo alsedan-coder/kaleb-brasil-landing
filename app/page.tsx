@@ -62,39 +62,39 @@ export default function Home() {
         <div className="absolute top-20 -left-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container-custom relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {/* Badge */}
               <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+                variants={itemVariants}
+                className="inline-flex items-center gap-2 bg-orange-600/15 border border-accent/40 text-accent text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full mb-7"
               >
-                {/* Badge */}
-                <motion.div
-                  variants={itemVariants}
-                  className="inline-flex items-center gap-2 bg-orange-600/15 border border-accent/40 text-accent text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full mb-7"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                  Automação Comercial · Interior Paulista
-                </motion.div>
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                Automação Comercial · Interior Paulista
+              </motion.div>
 
-                {/* Heading */}
-                <motion.h1
-                  variants={itemVariants}
-                  className="font-inter text-white text-3xl md:text-5xl font-bold leading-tight mb-6"
-                >
-                  O apoio e a solução que a sua empresa{' '}
-                  <span className="text-accent">realmente merece.</span>
-                </motion.h1>
+              {/* Heading */}
+              <motion.h1
+                variants={itemVariants}
+                className="font-inter text-white text-3xl md:text-5xl font-bold leading-tight mb-6"
+              >
+                O apoio e a solução que a sua empresa{' '}
+                <span className="text-accent">realmente merece.</span>
+              </motion.h1>
 
-                {/* Subheading */}
-                <motion.p
-                  variants={itemVariants}
-                  className="text-white/75 text-lg leading-relaxed mb-10 max-w-lg"
-                >
-                  Cadastre seus produtos, acelere suas vendas, emita notas fiscais e acompanhe
-                  resultados — tudo com um único parceiro especializado em PMEs do interior de SP.
-                </motion.p>
+              {/* Subheading */}
+              <motion.p
+                variants={itemVariants}
+                className="text-white/75 text-lg leading-relaxed mb-10 max-w-lg"
+              >
+                Cadastre seus produtos, acelere suas vendas, emita notas fiscais e acompanhe
+                resultados — tudo com um único parceiro especializado em PMEs do interior de SP.
+              </motion.p>
 
               {/* CTA Buttons */}
               <motion.div
@@ -109,25 +109,25 @@ export default function Home() {
                 </a>
               </motion.div>
 
-                {/* Trust Items */}
-                <motion.div
-                  variants={itemVariants}
-                  className="flex flex-col gap-4"
-                >
-                  <div className="flex items-center gap-2 text-white/80 font-medium">
-                    <svg width="16" height="16" fill="none" stroke="#25D366" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Suporte rápido e eficiente
-                  </div>
-                  <div className="flex items-center gap-2 text-white/80 font-medium">
-                    <svg width="16" height="16" fill="none" stroke="#25D366" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Treinamento personalizado incluso
-                  </div>
-                </motion.div>
+              {/* Trust Items */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col gap-4"
+              >
+                <div className="flex items-center gap-2 text-white/80 font-medium">
+                  <svg width="16" height="16" fill="none" stroke="#25D366" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Suporte rápido e eficiente
+                </div>
+                <div className="flex items-center gap-2 text-white/80 font-medium">
+                  <svg width="16" height="16" fill="none" stroke="#25D366" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Treinamento personalizado incluso
+                </div>
               </motion.div>
+            </motion.div>
 
             {/* Right decorative element - subtle gradient box instead of image */}
             <motion.div
@@ -138,6 +138,7 @@ export default function Home() {
             >
               <div className="relative w-full max-w-md h-96 bg-gradient-to-br from-blue-light/30 to-accent/20 rounded-3xl backdrop-blur-sm border border-white/10" />
             </motion.div>
+          </div>
         </div>
         </section>
 
