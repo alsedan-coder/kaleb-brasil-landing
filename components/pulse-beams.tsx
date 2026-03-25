@@ -1,0 +1,181 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface BeamPath {
+  path: string;
+  delay?: number;
+}
+
+interface PulseBeamsProps {
+  children?: React.ReactNode;
+  className?: string;
+  beams?: BeamPath[];
+}
+
+const defaultBeams: BeamPath[] = [
+  {
+    path: 'M100 150 Q150 100 250 150',
+    delay: 0,
+  },
+  {
+    path: 'M150 50 Q200 100 250 150',
+    delay: 0.3,
+  },
+  {
+    path: 'M100 250 Q150 200 250 150',
+    delay: 0.6,
+  },
+];
+
+export const PulseBeams: React.FC<PulseBeamsProps> = ({
+  children,
+  className = '',
+  beams = defaultBeams,
+}) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const beamVariants = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: 'loop' as const,
+        ease: 'linear',
+      },
+    },
+  };
+
+  const dotVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        repeat: Infinity,
+        repeatType: 'mirror' as const,
+      },
+    },
+  };
+
+  return (
+    <div className={`relative w-full ${className}`}>
+      {/* SVG Background */}
+      <svg
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        viewBox="0 0 600 300"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="pulseGradient1" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#E67E22" stopOpacity="0" />
+            <stop offset="30%" stopColor="#E67E22" stopOpacity="0.8" />
+            <stop offset="70%" stopColor="#D35400" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#E67E22" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="pulseGradient2" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#E67E22" stopOpacity="0" />
+            <stop offset="30%" stopColor="#E67E22" stopOpacity="0.6" />
+            <stop offset="70%" stopColor="#1658B8" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#E67E22" stopOpacity="0" />
+          </linearGradient>
+
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <motion.g
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Beam Paths */}
+          {beams.map((beam, idx) => (
+            <React.Fragment key={idx}>
+              <motion.path
+                d={beam.path}
+                stroke="rgba(230,126,34,0.15)"
+                strokeWidth="2"
+                fill="none"
+                variants={beamVariants}
+              />
+              <motion.path
+                d={beam.path}
+                stroke={idx % 2 === 0 ? 'url(#pulseGradient1)' : 'url(#pulseGradient2)'}
+                strokeWidth="2.5"
+                fill="none"
+                filter="url(#glow)"
+                variants={beamVariants}
+                style={{
+                  transitionDelay: `${beam.delay}s`,
+                }}
+              />
+            </React.Fragment>
+          ))}
+
+          {/* Connection Dots */}
+          <motion.circle
+            cx="250"
+            cy="150"
+            r="4"
+            fill="rgba(230,126,34,0.6)"
+            stroke="rgba(230,126,34,0.9)"
+            strokeWidth="1.5"
+            variants={dotVariants}
+            filter="url(#glow)"
+          />
+          <motion.circle
+            cx="100"
+            cy="150"
+            r="3"
+            fill="rgba(230,126,34,0.5)"
+            stroke="rgba(230,126,34,0.7)"
+            strokeWidth="1"
+            variants={dotVariants}
+          />
+          <motion.circle
+            cx="150"
+            cy="50"
+            r="3"
+            fill="rgba(230,126,34,0.5)"
+            stroke="rgba(230,126,34,0.7)"
+            strokeWidth="1"
+            variants={dotVariants}
+          />
+          <motion.circle
+            cx="100"
+            cy="250"
+            r="3"
+            fill="rgba(230,126,34,0.5)"
+            stroke="rgba(230,126,34,0.7)"
+            strokeWidth="1"
+            variants={dotVariants}
+          />
+        </motion.g>
+      </svg>
+
+      {/* Content */}
+      <div className="relative z-10">{children}</div>
+    </div>
+  );
+};
