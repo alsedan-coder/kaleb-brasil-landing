@@ -28,7 +28,7 @@ export default function HomeClient() {
     <div className="w-full">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-lg border-b border-white/5">
-        <div className="container-custom flex items-center justify-between h-[68px]">
+        <div className="container-custom flex items-center justify-between h-[52px] py-2">
           <a href="https://kalebbrasil.com.br" target="_blank" rel="noopener noreferrer" className="text-white text-xl font-bold">
             Kaleb Brasil
           </a>
