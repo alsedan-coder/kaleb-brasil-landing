@@ -40,7 +40,7 @@ export default function Home() {
             <a href="#sobre" className="text-white/75 text-sm font-medium hover:text-white transition-colors">
               Sobre
             </a>
-            <a href="#contato" className="btn-primary">
+            <a href="#pronto" className="btn-primary">
               Agendar Conversa
             </a>
           </nav>
@@ -101,7 +101,7 @@ export default function Home() {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 mb-12"
               >
-                <a href="#contato" className="btn-primary btn-lg inline-block text-center">
+                <a href="#pronto" className="btn-primary btn-lg inline-block text-center">
                   Agendar uma conversa gratuita
                 </a>
                 <a href="#servicos" className="btn-outline btn-lg inline-block text-center">
@@ -295,7 +295,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right - Text */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="md:mt-[88px]">
               <div className="space-y-6">
                 {[
                   { num: "03", title: "Treinamento personalizado e dinâmico", desc: "Treinamos sua equipe no seu ritmo, mesmo com a loja aberta, focando no que você realmente precisa usar no dia a dia." },
