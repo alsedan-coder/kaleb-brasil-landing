@@ -40,9 +40,6 @@ export default function HomeClient() {
             <a href="#sobre" className="text-white/75 text-sm font-medium hover:text-white transition-colors">
               Sobre
             </a>
-            <a href="#pronto" className="btn-primary">
-              Agendar Conversa
-            </a>
           </nav>
         </div>
       </header>
