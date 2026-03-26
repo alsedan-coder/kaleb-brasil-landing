@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function HomeClient() {
+    const [menuOpen, setMenuOpen] = React.useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,7 +34,8 @@ export default function HomeClient() {
             Kaleb Brasil
           </a>
 
-          <nav className="flex items-center gap-6">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6">
             <a href="#servicos" className="text-white/75 text-sm font-medium hover:text-white transition-colors">
               Serviços
             </a>
@@ -41,7 +43,41 @@ export default function HomeClient() {
               Sobre
             </a>
           </nav>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden flex items-center justify-center p-2 text-white focus:outline-none"
+            aria-label="Abrir menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+          </button>
         </div>
+        {/* Mobile Menu Overlay */}
+        {menuOpen && (
+          <div className="md:hidden fixed inset-0 z-40 bg-navy/95 bg-opacity-95 flex flex-col items-center justify-center gap-8 transition-all">
+            <button
+              className="absolute top-6 right-6 p-2 text-white"
+              aria-label="Fechar menu"
+              onClick={() => setMenuOpen(false)}
+            >
+              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="6" y1="18" x2="18" y2="6" />
+              </svg>
+            </button>
+            <a href="#servicos" className="text-white text-2xl font-semibold" onClick={() => setMenuOpen(false)}>
+              Serviços
+            </a>
+            <a href="#sobre" className="text-white text-2xl font-semibold" onClick={() => setMenuOpen(false)}>
+              Sobre
+            </a>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
