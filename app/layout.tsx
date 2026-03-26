@@ -1,10 +1,14 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Kaleb Brasil – Automação Comercial que Funciona',
   description: 'Kaleb Brasil – Soluções completas em Automação Comercial para pequenas e médias empresas do interior paulista.',
-  viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
