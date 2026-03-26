@@ -14,7 +14,9 @@ export default function HomeClient() {
             </svg>
           ),
           label: "WhatsApp",
-          value: "(19) 9 9836-2868"
+          value: "(19) 9 9836-2868",
+          href: "https://api.whatsapp.com/send?phone=5519998362868&text=Ol%C3%A1%2C+vim+pela+landpage+e+gostaria+de+conversar+sobre+as+solu%C3%A7%C3%B5es+da+Kaleb+Brasil!",
+          target: "_blank"
         },
         {
           icon: (
@@ -25,7 +27,9 @@ export default function HomeClient() {
             </svg>
           ),
           label: "Site",
-          value: "kalebbrasil.com.br"
+          value: "kalebbrasil.com.br",
+          href: "https://kalebbrasil.com.br",
+          target: "_blank"
         },
         {
           icon: (
@@ -35,7 +39,9 @@ export default function HomeClient() {
             </svg>
           ),
           label: "Região",
-          value: "Interior de São Paulo"
+          value: "Interior de São Paulo",
+          href: "https://www.google.com/maps/place/Vinhedo+-+SP",
+          target: "_blank"
         }
       ];
     const [menuOpen, setMenuOpen] = React.useState(false);
@@ -78,40 +84,41 @@ export default function HomeClient() {
             </a>
           </nav>
 
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden flex items-center justify-center p-2 text-white focus:outline-none"
-            aria-label="Abrir menu"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <line x1="4" y1="6" x2="20" y2="6" />
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <line x1="4" y1="18" x2="20" y2="18" />
-            </svg>
-          </button>
-        </div>
-        {/* Mobile Menu Overlay */}
-        {menuOpen && (
-          <div className="md:hidden fixed inset-0 z-40 bg-navy/95 bg-opacity-95 flex flex-col items-center justify-center gap-8 transition-all">
+          {/* Mobile Hamburger + Novo Menu */}
+          <div className="md:hidden flex items-center relative">
             <button
-              className="absolute top-6 right-6 p-2 text-white"
-              aria-label="Fechar menu"
-              onClick={() => setMenuOpen(false)}
+              className="flex items-center justify-center p-2 text-white focus:outline-none"
+              aria-label="Abrir menu"
+              onClick={() => setMenuOpen(!menuOpen)}
             >
               <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <line x1="6" y1="6" x2="18" y2="18" />
-                <line x1="6" y1="18" x2="18" y2="6" />
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
               </svg>
             </button>
-            <a href="#servicos" className="text-white text-2xl font-semibold" onClick={() => setMenuOpen(false)}>
-              Serviços
-            </a>
-            <a href="#sobre" className="text-white text-2xl font-semibold" onClick={() => setMenuOpen(false)}>
-              Sobre
-            </a>
+            {menuOpen && (
+              <div className="absolute top-12 right-0 z-50 w-44 bg-white border border-gray-200 rounded-xl shadow-lg py-2 flex flex-col gap-1 animate-fade-in">
+                <button
+                  className="absolute top-2 right-2 p-1 text-navy hover:text-accent"
+                  aria-label="Fechar menu"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <line x1="6" y1="18" x2="18" y2="6" />
+                  </svg>
+                </button>
+                <a href="#servicos" className="block px-4 py-2 text-navy font-semibold hover:bg-blue-light/20 rounded transition-colors" onClick={() => setMenuOpen(false)}>
+                  Serviços
+                </a>
+                <a href="#sobre" className="block px-4 py-2 text-navy font-semibold hover:bg-blue-light/20 rounded transition-colors" onClick={() => setMenuOpen(false)}>
+                  Sobre
+                </a>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -586,13 +593,19 @@ export default function HomeClient() {
                     {/* Contact Details */}
                     <div className="space-y-4 pt-6">
                       {contactDetails.map((contact, idx) => (
-                        <div key={idx} className="flex items-start gap-4">
-                          <div className="flex-shrink-0">{contact.icon}</div>
-                          <div>
-                            <div className="font-bold text-navy">{contact.label}</div>
-                            <div className="text-text-soft text-sm">{contact.value}</div>
-                          </div>
-                        </div>
+                        <a
+                          key={idx}
+                          href={contact.href}
+                          target={contact.target}
+                          rel="noopener noreferrer"
+                          className="flex items-start gap-4 group hover:bg-blue-light/10 rounded-lg p-2 transition-colors"
+                        >
+                          <span className="flex-shrink-0 group-hover:scale-110 transition-transform">{contact.icon}</span>
+                          <span>
+                            <span className="font-bold text-navy group-hover:text-accent transition-colors block">{contact.label}</span>
+                            <span className="text-text-soft text-sm group-hover:text-accent/80 transition-colors block">{contact.value}</span>
+                          </span>
+                        </a>
                       ))}
                     </div>
 
