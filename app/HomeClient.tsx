@@ -39,8 +39,8 @@ export default function HomeClient() {
             </svg>
           ),
           label: "Região",
-          value: "Interior de São Paulo",
-          href: "https://www.google.com/maps/place/Vinhedo+-+SP",
+          value: "Rua Marechal Deodoro da Fonseca, 212, Vila Negrello, Vinhedo, SP",
+          href: "https://www.google.com/maps/place/Rua+Marechal+Deodoro+da+Fonseca,+212+-+Vila+Negrello,+Vinhedo+-+SP,+13280-083",
           target: "_blank"
         }
       ];
