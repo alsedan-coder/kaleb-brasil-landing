@@ -296,7 +296,7 @@ export default function Home() {
 
             {/* Right - Text */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="space-y-6 mt-0 md:mt-14">
+              <div className="space-y-6">
                 {[
                   { num: "03", title: "Treinamento personalizado e dinâmico", desc: "Treinamos sua equipe no seu ritmo, mesmo com a loja aberta, focando no que você realmente precisa usar no dia a dia." },
                   { num: "04", title: "Preparados para as mudanças fiscais", desc: "NFC-e, reforma tributária, NCM ativos — nossa equipe está atualizada e pronta para guiar a sua empresa nessas transições." }
@@ -375,34 +375,36 @@ export default function Home() {
       {/* Sobre - Filosofia */}
       <section id="sobre" className="py-24 bg-gradient-to-b from-slate-50 via-white to-navy/5 text-navy">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Citação prominente */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-8"
             >
               <div>
                 <p className="text-xs font-bold tracking-wider uppercase text-accent mb-4">Nossa Filosofia</p>
-                <h2 className="text-4xl md:text-5xl font-bold leading-tight text-navy mb-2">
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight text-navy mb-4">
                   Entender para{' '}
                   <span className="text-accent">atender</span>
                 </h2>
-                <p className="text-text-soft text-lg">Nosso negócio é simples: conhecer cada cliente como único.</p>
+                <p className="text-text-soft text-lg leading-relaxed">
+                  Nosso negócio é simples: conhecer cada cliente como único e oferecer soluções que realmente fazem diferença no dia a dia.
+                </p>
               </div>
 
               {/* Quote Block */}
-              <div className="relative overflow-hidden rounded-2xl bg-white border-2 border-accent/30 p-8 md:p-10 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="absolute -top-12 -left-12 text-9xl text-accent/10 font-bold">"</div>
-                <p className="relative z-10 text-xl md:text-2xl font-bold text-navy leading-relaxed mb-4">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-blue-light/5 to-accent/5 border-2 border-accent/20 p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="absolute -top-8 -left-8 text-8xl text-accent/10 font-bold">"</div>
+                <p className="relative z-10 text-xl md:text-2xl font-bold text-navy leading-relaxed mb-6">
                   Nosso negócio é <em className="text-accent not-italic">entender para atender</em> — sendo a solução que a sua empresa merece.
                 </p>
-                <p className="text-sm text-text-soft font-semibold">— Kaleb Brasil, desde Vinhedo/SP</p>
+                <p className="text-sm text-text-soft font-semibold text-right">— Kaleb Brasil, desde Vinhedo/SP</p>
               </div>
 
               {/* Checklist */}
-              <div className="space-y-3 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 {[
                   "Homologado para NFC-e 2026",
                   "Certificados digitais A1 online",
@@ -411,17 +413,17 @@ export default function Home() {
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="flex items-center gap-3"
+                    className="flex items-center gap-3 p-3 bg-white/60 rounded-xl border border-blue-light/20 hover:bg-white/80 transition-colors"
                   >
-                    <div className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/20 border border-accent flex items-center justify-center">
-                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" className="text-accent">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent/20 border-2 border-accent flex items-center justify-center">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" className="text-accent">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </div>
-                    <span className="text-navy font-medium">{item}</span>
+                    <span className="text-navy font-medium text-sm">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -434,29 +436,29 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-light via-accent/20 to-navy/10 p-12 border border-white/40">
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-light via-accent/20 to-navy/10 p-12 border border-white/40 shadow-2xl">
                 {/* Decorative blobs */}
                 <div className="absolute -top-20 -right-20 w-60 h-60 bg-accent/30 rounded-full blur-3xl" />
                 <div className="absolute -bottom-32 -left-20 w-80 h-80 bg-blue-light/20 rounded-full blur-3xl" />
 
-                <div className="relative z-10 space-y-8">
+                <div className="relative z-10 space-y-6">
                   {/* Card 1 */}
-                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
-                    <div className="text-3xl mb-3">⚡</div>
+                  <div className="backdrop-blur-sm bg-white/90 rounded-2xl p-6 border border-white/70 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div className="text-4xl mb-3">⚡</div>
                     <h4 className="font-bold text-navy mb-2">Rápido</h4>
                     <p className="text-sm text-text-soft">Implementação e suporte ágil, sem demora.</p>
                   </div>
 
                   {/* Card 2 */}
-                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
-                    <div className="text-3xl mb-3">🤝</div>
+                  <div className="backdrop-blur-sm bg-white/90 rounded-2xl p-6 border border-white/70 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div className="text-4xl mb-3">🤝</div>
                     <h4 className="font-bold text-navy mb-2">Próximo</h4>
                     <p className="text-sm text-text-soft">Atendimento humanizado, com pessoas reais.</p>
                   </div>
 
                   {/* Card 3 */}
-                  <div className="backdrop-blur-sm bg-white/80 rounded-2xl p-6 border border-white/60 hover:-translate-y-2 transition-transform">
-                    <div className="text-3xl mb-3">✓</div>
+                  <div className="backdrop-blur-sm bg-white/90 rounded-2xl p-6 border border-white/70 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div className="text-4xl mb-3">✓</div>
                     <h4 className="font-bold text-navy mb-2">Confiável</h4>
                     <p className="text-sm text-text-soft">Parceiro comprometido com seus resultados.</p>
                   </div>
@@ -466,162 +468,179 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Formulário de Contato */}
-      <section id="contato" className="py-24 bg-white text-navy">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left - Info */}
+{/* Pronto para começar - Formulário Completo */}
+      <section id="pronto" className="py-24 bg-gradient-to-br from-navy via-blue to-blue-light text-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[48px_48px]" />
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+
+        <div className="container-custom relative z-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="text-center mb-12"
             >
-              <div>
-                <p className="text-xs font-bold tracking-wider uppercase text-accent mb-3">Vamos conversar</p>
-                <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                  Pronto para organizar<br />a gestão do seu negócio?
-                </h2>
-                <p className="text-text-soft text-lg">
-                  Preencha o formulário e um consultor entrará em contato em até 1 dia útil.
-                  A conversa inicial é gratuita e sem compromisso.
-                </p>
-              </div>
-
-              {/* Contact Details */}
-              <div className="space-y-4 pt-6">
-                {[
-                  { icon: "📱", label: "WhatsApp", value: "(19) 9 9836-2868" },
-                  { icon: "🌐", label: "Site", value: "kalebbrasil.com.br" },
-                  { icon: "📍", label: "Região", value: "Interior de São Paulo" }
-                ].map((contact, idx) => (
-                  <div key={idx} className="flex items-start gap-4">
-                    <div className="text-2xl flex-shrink-0">{contact.icon}</div>
-                    <div>
-                      <div className="font-bold text-navy">{contact.label}</div>
-                      <div className="text-text-soft text-sm">{contact.value}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* WhatsApp Button */}
-              <div className="pt-4">
-                <a
-                  href="https://api.whatsapp.com/send?phone=5519998362868&text=Ol%C3%A1%2C+vim+pela+landpage+e+gostaria+de+conversar+sobre+as+solu%C3%A7%C3%B5es+da+Kaleb+Brasil!"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold px-6 py-3 rounded-lg transition-all"
-                >
-                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                  </svg>
-                  Chamar no WhatsApp agora
-                </a>
-              </div>
+              <p className="text-xs font-bold tracking-wider uppercase text-accent mb-4">Pronto para começar?</p>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Vamos transformar a gestão do seu negócio
+              </h2>
+              <p className="text-white/80 text-lg max-w-2xl mx-auto">
+                Preencha o formulário abaixo e um consultor entrará em contato em até 1 dia útil.
+                A conversa inicial é gratuita e sem compromisso.
+              </p>
             </motion.div>
 
-            {/* Right - Form */}
+            {/* Form */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative rounded-2xl bg-gradient-to-br from-blue-light/5 via-accent/5 to-white border border-blue-light/20 p-8 md:p-10 shadow-lg">
-                <h3 className="text-2xl font-bold text-navy mb-2">Agendar conversa gratuita</h3>
-                <p className="text-text-soft text-sm mb-6">Sem compromisso — um consultor entrará em contato em breve.</p>
-
-                <form id="leadForm" className="space-y-4">
-                  {/* Nome e Empresa */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="relative rounded-3xl bg-white/95 backdrop-blur-sm border border-white/20 p-8 md:p-12 shadow-2xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                  {/* Left - Info */}
+                  <div className="space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-navy mb-2">
-                        Nome <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="nome"
-                        placeholder="Seu nome completo"
-                        required
-                        className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
-                      />
+                      <h3 className="text-2xl font-bold text-navy mb-2">Agendar conversa gratuita</h3>
+                      <p className="text-text-soft text-sm">Sem compromisso — um consultor entrará em contato em breve.</p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-navy mb-2">
-                        Empresa <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="empresa"
-                        placeholder="Nome da empresa"
-                        required
-                        className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
-                      />
+
+                    {/* Contact Details */}
+                    <div className="space-y-4 pt-6">
+                      {[
+                        { icon: "📱", label: "WhatsApp", value: "(19) 9 9836-2868" },
+                        { icon: "🌐", label: "Site", value: "kalebbrasil.com.br" },
+                        { icon: "📍", label: "Região", value: "Interior de São Paulo" }
+                      ].map((contact, idx) => (
+                        <div key={idx} className="flex items-start gap-4">
+                          <div className="text-2xl flex-shrink-0">{contact.icon}</div>
+                          <div>
+                            <div className="font-bold text-navy">{contact.label}</div>
+                            <div className="text-text-soft text-sm">{contact.value}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* WhatsApp Button */}
+                    <div className="pt-4">
+                      <a
+                        href="https://api.whatsapp.com/send?phone=5519998362868&text=Ol%C3%A1%2C+vim+pela+landpage+e+gostaria+de+conversar+sobre+as+solu%C3%A7%C3%B5es+da+Kaleb+Brasil!"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold px-6 py-3 rounded-lg transition-all"
+                      >
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Ou fale agora pelo WhatsApp →
+                      </a>
                     </div>
                   </div>
 
-                  {/* Email */}
+                  {/* Right - Form Fields */}
                   <div>
-                    <label className="block text-sm font-semibold text-navy mb-2">
-                      E-mail <span className="text-accent">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="seu@email.com.br"
-                      required
-                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
-                    />
+                    <form id="leadForm" className="space-y-4">
+                      {/* Nome e Empresa */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-semibold text-navy mb-2">
+                            Nome <span className="text-accent">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="nome"
+                            placeholder="Seu nome completo"
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-semibold text-navy mb-2">
+                            Empresa <span className="text-accent">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="empresa"
+                            placeholder="Nome da empresa"
+                            required
+                            className="w-full px-4 py-3 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div>
+                        <label className="block text-sm font-semibold text-navy mb-2">
+                          E-mail <span className="text-accent">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="seu@email.com.br"
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                        />
+                      </div>
+
+                      {/* WhatsApp */}
+                      <div>
+                        <label className="block text-sm font-semibold text-navy mb-2">
+                          WhatsApp <span className="text-accent">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="whatsapp"
+                          placeholder="(19) 9 0000-0000"
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
+                        />
+                      </div>
+
+                      {/* Mensagem */}
+                      <div>
+                        <label className="block text-sm font-semibold text-navy mb-2">
+                          Mensagem <span className="text-text-soft text-xs">(opcional)</span>
+                        </label>
+                        <textarea
+                          name="mensagem"
+                          placeholder="Conte brevemente sobre seu negócio ou dúvida principal..."
+                          rows={3}
+                          className="w-full px-4 py-3 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50 resize-none"
+                        />
+                      </div>
+
+                      {/* Submit Button */}
+                      <button
+                        type="submit"
+                        className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 text-lg"
+                      >
+                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/>
+                        </svg>
+                        Enviar e agendar conversa
+                      </button>
+
+                      {/* Privacy note */}
+                      <p className="text-xs text-text-soft flex items-center gap-2">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <rect x="3" y="11" width="18" height="11" rx="2"/>
+                          <path d="M7 11V7a5 5 0 0110 0v4"/>
+                        </svg>
+                        Seus dados estão seguros. Sem spam.
+                      </p>
+                    </form>
                   </div>
-
-                  {/* WhatsApp */}
-                  <div>
-                    <label className="block text-sm font-semibold text-navy mb-2">
-                      WhatsApp <span className="text-accent">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="whatsapp"
-                      placeholder="(19) 9 0000-0000"
-                      required
-                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50"
-                    />
-                  </div>
-
-                  {/* Mensagem */}
-                  <div>
-                    <label className="block text-sm font-semibold text-navy mb-2">
-                      Mensagem <span className="text-text-soft text-xs">(opcional)</span>
-                    </label>
-                    <textarea
-                      name="mensagem"
-                      placeholder="Conte brevemente sobre seu negócio ou dúvida principal..."
-                      rows={3}
-                      className="w-full px-4 py-2.5 rounded-lg border border-blue-light/30 bg-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 text-navy placeholder:text-text-soft/50 resize-none"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-3 rounded-lg transition-all flex items-center justify-center gap-2"
-                  >
-                    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/>
-                    </svg>
-                    Enviar e agendar conversa
-                  </button>
-
-                  {/* Privacy note */}
-                  <p className="text-xs text-text-soft flex items-center gap-2">
-                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <rect x="3" y="11" width="18" height="11" rx="2"/>
-                      <path d="M7 11V7a5 5 0 0110 0v4"/>
-                    </svg>
-                    Seus dados estão seguros. Sem spam.
-                  </p>
-                </form>
+                </div>
               </div>
             </motion.div>
           </div>
