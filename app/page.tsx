@@ -272,45 +272,47 @@ export default function Home() {
       {/* Diferenciais */}
       <section id="diferenciais" className="py-20 bg-white text-navy">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Left - Text */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Por que a Kaleb Brasil</p>
-              <h2 className="section-h2">Especialistas que entendem o seu negócio.</h2>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left - Text */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <p className="text-xs font-bold tracking-wider uppercase text-blue mb-3">Por que a Kaleb Brasil</p>
+                <h2 className="section-h2">Especialistas que entendem o seu negócio.</h2>
 
-              <div className="space-y-6 mt-8">
-                {[
-                  { num: "01", title: "Atendimento humanizado e rápido", desc: "Suporte ágil com pessoas reais — não bots. Nossos clientes confirmam: quando precisam, a equipe está lá." },
-                  { num: "02", title: "Solução completa em um só parceiro", desc: "Software, hardware, certificados, manutenção e treinamento. Uma empresa, um responsável, zero terceirização de culpa." }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="text-2xl font-bold text-accent flex-shrink-0">{item.num}</div>
-                    <div>
-                      <h4 className="font-bold text-navy mb-1">{item.title}</h4>
-                      <p className="text-text-soft text-sm">{item.desc}</p>
+                <div className="space-y-6 mt-8">
+                  {[
+                    { num: "01", title: "Atendimento humanizado e rápido", desc: "Suporte ágil com pessoas reais — não bots. Nossos clientes confirmam: quando precisam, a equipe está lá." },
+                    { num: "02", title: "Solução completa em um só parceiro", desc: "Software, hardware, certificados, manutenção e treinamento. Uma empresa, um responsável, zero terceirização de culpa." }
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-4">
+                      <div className="text-2xl font-bold text-accent flex-shrink-0 w-12 text-center">{item.num}</div>
+                      <div>
+                        <h4 className="font-bold text-navy mb-1">{item.title}</h4>
+                        <p className="text-text-soft text-sm">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+                  ))}
+                </div>
+              </motion.div>
 
-            {/* Right - Text */}
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="md:mt-[88px]">
-              <div className="space-y-6">
-                {[
-                  { num: "03", title: "Treinamento personalizado e dinâmico", desc: "Treinamos sua equipe no seu ritmo, mesmo com a loja aberta, focando no que você realmente precisa usar no dia a dia." },
-                  { num: "04", title: "Preparados para as mudanças fiscais", desc: "NFC-e, reforma tributária, NCM ativos — nossa equipe está atualizada e pronta para guiar a sua empresa nessas transições." }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="text-2xl font-bold text-accent flex-shrink-0">{item.num}</div>
-                    <div>
-                      <h4 className="font-bold text-navy mb-1">{item.title}</h4>
-                      <p className="text-text-soft text-sm">{item.desc}</p>
+              {/* Right - Text */}
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+                <div className="space-y-6 md:mt-[88px]">
+                  {[
+                    { num: "03", title: "Treinamento personalizado e dinâmico", desc: "Treinamos sua equipe no seu ritmo, mesmo com a loja aberta, focando no que você realmente precisa usar no dia a dia." },
+                    { num: "04", title: "Preparados para as mudanças fiscais", desc: "NFC-e, reforma tributária, NCM ativos — nossa equipe está atualizada e pronta para guiar a sua empresa nessas transições." }
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex gap-4">
+                      <div className="text-2xl font-bold text-accent flex-shrink-0 w-12 text-center">{item.num}</div>
+                      <div>
+                        <h4 className="font-bold text-navy mb-1">{item.title}</h4>
+                        <p className="text-text-soft text-sm">{item.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
